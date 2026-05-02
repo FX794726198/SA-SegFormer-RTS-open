@@ -31,9 +31,9 @@ pip install -r requirements.txt
 
 ## Data
 
-GitHub contains the code and lightweight CSV manifests. The complete raster chips are intended to be hosted on Zenodo.
+GitHub contains the code and lightweight CSV manifests. The complete raster chips are hosted on Zenodo.
 
-Dataset download: `TODO: add Zenodo DOI after uploading SA-SegFormer-RTS-dataset-zenodo.zip`
+Dataset download: [https://doi.org/10.5281/zenodo.19972661](https://doi.org/10.5281/zenodo.19972661)
 
 Recommended download layout:
 

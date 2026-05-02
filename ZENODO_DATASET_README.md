@@ -45,4 +45,8 @@ The accompanying code repository is released under the MIT License.
 
 ## Citation
 
-Please cite the associated paper and the Zenodo dataset DOI once available.
+Please cite the associated paper and this Zenodo dataset record:
+
+```text
+10.5281/zenodo.19972661
+```

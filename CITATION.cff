@@ -6,7 +6,14 @@ license: MIT
 authors:
   - name: "SA-SegFormer RTS contributors"
 date-released: 2026-05-02
-repository-code: "https://github.com/your-org/sa-segformer-rts"
+repository-code: "https://github.com/FX794726198/SA-SegFormer-RTS-open"
+references:
+  - type: dataset
+    title: "SA-SegFormer RTS Dataset"
+    authors:
+      - name: "SA-SegFormer RTS contributors"
+    doi: "10.5281/zenodo.19972661"
+    year: 2026
 preferred-citation:
   type: article
   title: "SA-SegFormer for retrogressive thaw slump segmentation"

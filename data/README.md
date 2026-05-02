@@ -2,11 +2,9 @@
 
 This GitHub repository tracks only lightweight dataset manifests and metadata. The full raster dataset is distributed separately to avoid GitHub repository-size and Git LFS quota limits.
 
-Before public release, add the final Zenodo DOI here:
+The full dataset is available from Zenodo:
 
-```text
-TODO: Zenodo DOI / archive URL
-```
+[https://doi.org/10.5281/zenodo.19972661](https://doi.org/10.5281/zenodo.19972661)
 
 The Zenodo archive should be uploaded as:
 
