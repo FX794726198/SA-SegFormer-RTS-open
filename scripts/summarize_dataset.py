@@ -17,9 +17,17 @@ from sa_segformer_rts.data import load_manifest  # noqa: E402
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Summarize SA-SegFormer RTS dataset manifests")
+    parser = argparse.ArgumentParser(description="Summarize FusionSA-SegFormer RTS dataset manifests")
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
-    parser.add_argument("--manifests", nargs="*", default=["data/manifests/manifest_2024.csv", "data/manifests/manifest_2023.csv"])
+    parser.add_argument(
+        "--manifests",
+        nargs="*",
+        default=[
+            "data/manifests/manifest_2023_split_837_179_179.csv",
+            "data/manifests/manifest_2023.csv",
+            "data/manifests/manifest_2024.csv",
+        ],
+    )
     return parser.parse_args()
 
 

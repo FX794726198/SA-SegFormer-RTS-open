@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Train a baseline model using the fixed 837/179/179 manifest split."""
+"""Train a paper baseline model on RGB chips with the fixed 837/179/179 split."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ from sa_segformer_rts.visualize import export_predictions  # noqa: E402
 
 
 def parse_args(default_model: str):
-    parser = argparse.ArgumentParser(description="Train a baseline RTS segmentation model")
+    parser = argparse.ArgumentParser(description="Train a paper baseline RTS segmentation model")
     parser.add_argument("--model", default=default_model)
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
     parser.add_argument("--manifest", default="data/manifests/manifest_2023_split_837_179_179.csv")
@@ -42,7 +42,8 @@ def parse_args(default_model: str):
     parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--image-size", type=int, nargs=2, default=[256, 256], metavar=("HEIGHT", "WIDTH"))
-    parser.add_argument("--rgb-only", action="store_true", help="Use only RGB channels instead of RGB+10 factors.")
+    parser.add_argument("--include-factors", action="store_true", help="Use RGB plus the 10 factor rasters instead of the paper RGB-only baseline input.")
+    parser.add_argument("--rgb-only", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--export-test-predictions", action="store_true")
     return parser.parse_args()
@@ -52,7 +53,7 @@ def main(default_model: str = "unet"):
     args = parse_args(default_model)
     repo_root = Path(args.repo_root).expanduser().resolve()
     set_all_seeds(args.seed)
-    feature_names = [] if args.rgb_only else DEFAULT_FEATURE_NAMES
+    feature_names = DEFAULT_FEATURE_NAMES if args.include_factors and not args.rgb_only else []
     samples = load_manifest(repo_root / args.manifest, repo_root=repo_root)
     if samples and args.split_column in samples[0] and any(str(sample.get(args.split_column, "")).strip() for sample in samples):
         train_samples, val_samples, test_samples = split_from_manifest_column(samples, split_column=args.split_column)

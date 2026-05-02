@@ -1,6 +1,6 @@
 # SA-SegFormer RTS Dataset
 
-This archive contains the raster chips and manifests used by the SA-SegFormer RTS segmentation experiments.
+This archive contains the raster chips and manifests used by the FusionSA-SegFormer RTS segmentation experiments.
 
 ## Contents
 
@@ -22,7 +22,8 @@ data/
 - 2023 manifest: 1195 complete chips.
 - Required main split: 837 training, 179 validation, 179 testing.
 - 2024 manifest: 717 complete chips.
-- Input channels: RGB optical imagery plus `DEM`, `EVI`, `FTI`, `LST`, `NBR`, `NDMI`, `NDVI`, `TCB`, `TCG`, and `TCW`.
+- Proposed model input channels: RGB optical imagery plus `DEM`, `EVI`, `FTI`, `LST`, `NBR`, `NDMI`, `NDVI`, `TCB`, `TCG`, and `TCW`.
+- Paper baseline wrappers use RGB optical imagery by default.
 - Region names and tile filenames are preserved from the original dataset.
 
 ## How To Use With The Code Repository

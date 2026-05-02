@@ -12,7 +12,6 @@ MANIFEST="${MANIFEST:-data/manifests/manifest_2023.csv}"
 
 cd "${REPO_ROOT}"
 mkdir -p slurm runs
-export MPLBACKEND=Agg
 export PYTHONUNBUFFERED=1
 
 "${PYTHON_BIN}" scripts/eval_region_holdout.py \

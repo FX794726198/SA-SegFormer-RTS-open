@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Run SA-SegFormer inference from a checkpoint and manifest."""
+"""Run FusionSA-SegFormer inference from a checkpoint and manifest."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from sa_segformer_rts.visualize import export_predictions  # noqa: E402
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="SA-SegFormer inference")
+    parser = argparse.ArgumentParser(description="FusionSA-SegFormer inference")
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
     parser.add_argument("--manifest", default="data/manifests/manifest_2023_split_837_179_179.csv")
     parser.add_argument("--checkpoint", required=True)

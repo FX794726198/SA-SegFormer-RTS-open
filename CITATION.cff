@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "SA-SegFormer RTS: code and data for retrogressive thaw slump segmentation"
+title: "FusionSA-SegFormer RTS: code and data for retrogressive thaw slump segmentation"
 message: "If you use this code or dataset, please cite the associated paper."
 type: software
 license: MIT
@@ -9,14 +9,14 @@ date-released: 2026-05-02
 repository-code: "https://github.com/FX794726198/SA-SegFormer-RTS-open"
 references:
   - type: dataset
-    title: "SA-SegFormer RTS Dataset"
+    title: "FusionSA-SegFormer RTS Dataset"
     authors:
       - name: "SA-SegFormer RTS contributors"
     doi: "10.5281/zenodo.19972661"
     year: 2026
 preferred-citation:
   type: article
-  title: "SA-SegFormer for retrogressive thaw slump segmentation"
+  title: "FusionSA-SegFormer for retrogressive thaw slump segmentation"
   authors:
     - name: "To be updated"
   journal: "To be updated"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Region-holdout training and evaluation for SA-SegFormer."""
+"""Region-holdout training and evaluation for FusionSA-SegFormer."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def parse_regions(value: str) -> list[str]:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="SA-SegFormer region-holdout evaluation")
+    parser = argparse.ArgumentParser(description="FusionSA-SegFormer region-holdout evaluation")
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
     parser.add_argument("--manifest", default="data/manifests/manifest_2023.csv")
     parser.add_argument("--output-dir", default="runs/region_holdout")

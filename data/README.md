@@ -34,4 +34,6 @@ data/
 
 The large local directories `data/2023/`, `data/2024/`, and `data/folds/` are ignored by Git on purpose. The scripts use `data/manifests/*.csv` to locate local files, so the original Chinese region names and tile names should remain unchanged.
 
+Paper baseline wrappers use RGB optical imagery by default. The proposed FusionSA-SegFormer training and inference scripts use RGB plus the ten factor rasters.
+
 Dataset files are released under CC BY 4.0. Code is released under MIT.

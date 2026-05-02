@@ -3,6 +3,7 @@ image_size: [256, 256]
 threshold: 0.4
 features: [DEM, EVI, FTI, LST, NBR, NDMI, NDVI, TCB, TCG, TCW]
 model:
+  name: fusion_sa_segformer
   backbone: mit_b0
   decoder_dim: 256
   use_decoder_sa: true

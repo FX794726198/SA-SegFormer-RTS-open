@@ -1,21 +1,35 @@
 # SA-SegFormer RTS
 
-This repository contains the code, configs, scripts, and dataset manifests for retrogressive thaw slump (RTS) binary segmentation with SA-SegFormer, plus baseline scripts used for comparison.
+This repository contains the curated code, configs, scripts, and dataset manifests for retrogressive thaw slump (RTS) binary segmentation with the manuscript's FusionSA-SegFormer model and paper baselines.
 
 The full raster dataset is distributed separately on Zenodo to avoid repository-size and Git LFS quota limits. Download the dataset archive from the DOI listed below, then unzip it at the repository root so that `data/2023/`, `data/2024/`, and `data/folds/` are restored locally.
+
+Exploratory notebooks, performance-plotting scripts, hard-coded local paths, and legacy drafts are intentionally excluded from this release.
 
 ## Repository Layout
 
 ```text
 src/sa_segformer_rts/      Reusable model, dataset, metrics, training, and export code
 scripts/                  Training, inference, evaluation, and dataset utilities
-baselines/                Original comparison-model scripts
+baselines/                Paper baseline training wrappers
 slurm/                    Portable SLURM job templates
 configs/                  Default experiment configuration
 data/                     Versioned manifests plus expected local dataset layout
 ```
 
-The SA-SegFormer input is 13 channels: RGB optical imagery plus 10 factor rasters (`DEM`, `EVI`, `FTI`, `LST`, `NBR`, `NDMI`, `NDVI`, `TCB`, `TCG`, `TCW`).
+The proposed FusionSA-SegFormer input is 13 channels: RGB optical imagery plus 10 factor rasters (`DEM`, `EVI`, `FTI`, `LST`, `NBR`, `NDMI`, `NDVI`, `TCB`, `TCG`, `TCW`). The released raster names are preserved from the working dataset; `FTI` corresponds to the thermal degree-day factor used in the manuscript.
+
+## Models
+
+The benchmark wrappers match the twelve model families described in the manuscript:
+
+```text
+CNN, U-Net, U-Net++, DeepLabV3+, ResNet, ConvNeXt,
+Swin Transformer, SegFormer, SA-SegFormer, CA-SegFormer,
+SA-ConvNeXt, CA-ConvNeXt
+```
+
+Baseline wrappers use RGB optical imagery by default, following the manuscript benchmark protocol. The proposed FusionSA-SegFormer uses RGB plus the ten factor rasters.
 
 ## Setup
 
@@ -87,12 +101,12 @@ python scripts/data/create_fixed_split.py \
   --require-exact-total
 ```
 
-## Train SA-SegFormer
+## Train FusionSA-SegFormer
 
 ```bash
 python scripts/train_sa_segformer.py \
   --manifest data/manifests/manifest_2023_split_837_179_179.csv \
-  --output-dir runs/sa_segformer \
+  --output-dir runs/fusion_sa_segformer \
   --run-name 2023_main \
   --epochs 400 \
   --batch-size 8
@@ -106,12 +120,15 @@ python scripts/train_sa_segformer.py --dry-run --max-train-samples 8 --max-val-s
 
 ## Train Baselines
 
-Each baseline wrapper uses the same `837/179/179` split manifest by default.
+Each baseline wrapper uses the same `837/179/179` split manifest and RGB-only input by default. Add `--include-factors` only for ablation runs outside the paper baseline protocol.
 
 ```bash
 python baselines/train_unet.py --epochs 200 --batch-size 8
 python baselines/train_deeplabv3plus.py --epochs 200 --batch-size 8
 python baselines/train_convnext.py --epochs 200 --batch-size 8
+python baselines/train_segformer.py --epochs 200 --batch-size 8
+python baselines/train_sa_segformer.py --epochs 200 --batch-size 8
+python baselines/train_ca_segformer.py --epochs 200 --batch-size 8
 ```
 
 ## Inference
@@ -119,7 +136,7 @@ python baselines/train_convnext.py --epochs 200 --batch-size 8
 ```bash
 python scripts/infer_sa_segformer.py \
   --manifest data/manifests/manifest_2023_split_837_179_179.csv \
-  --checkpoint runs/sa_segformer/2023_main/checkpoints/best.pth \
+  --checkpoint runs/fusion_sa_segformer/2023_main/checkpoints/best.pth \
   --output-dir runs/inference/2023_main
 ```
 

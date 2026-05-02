@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Cross-year temporal transfer evaluation for SA-SegFormer."""
+"""Cross-year temporal transfer evaluation for FusionSA-SegFormer."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def parse_regions(value: str) -> list[str]:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="SA-SegFormer cross-year temporal transfer evaluation")
+    parser = argparse.ArgumentParser(description="FusionSA-SegFormer cross-year temporal transfer evaluation")
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
     parser.add_argument("--source-manifest", default="data/manifests/manifest_2024.csv")
     parser.add_argument("--target-manifest", default="data/manifests/manifest_2023.csv")

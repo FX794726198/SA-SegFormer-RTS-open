@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Train SA-SegFormer on an RTS manifest."""
+"""Train the proposed FusionSA-SegFormer on an RTS manifest."""
 
 from __future__ import annotations
 
@@ -21,10 +21,10 @@ from sa_segformer_rts.visualize import export_predictions  # noqa: E402
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Train SA-SegFormer for RTS segmentation")
+    parser = argparse.ArgumentParser(description="Train FusionSA-SegFormer for RTS segmentation")
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
     parser.add_argument("--manifest", default="data/manifests/manifest_2023_split_837_179_179.csv")
-    parser.add_argument("--output-dir", default="runs/sa_segformer")
+    parser.add_argument("--output-dir", default="runs/fusion_sa_segformer")
     parser.add_argument("--run-name", default="default")
     parser.add_argument("--split-column", default="split")
     parser.add_argument("--train-count", type=int, default=DEFAULT_SPLIT_COUNTS["train"])

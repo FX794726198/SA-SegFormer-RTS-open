@@ -14,7 +14,6 @@ NUM_WORKERS="${NUM_WORKERS:-0}"
 
 cd "${REPO_ROOT}"
 mkdir -p slurm runs
-export MPLBACKEND=Agg
 export PYTHONUNBUFFERED=1
 
 "${PYTHON_BIN}" scripts/train_baseline.py \

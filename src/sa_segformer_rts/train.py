@@ -16,7 +16,7 @@ from tqdm import tqdm
 from .constants import DEFAULT_FEATURE_NAMES, DEFAULT_IMAGE_SIZE, DEFAULT_SEED, DEFAULT_SPLIT_COUNTS, DEFAULT_THRESHOLD
 from .data import LandslideDataset, load_binary_mask, mask_has_positive
 from .metrics import PIXEL_METRIC_KEYS, aggregate_object_metrics, compute_batch_metrics, object_level_metrics
-from .model import SASegFormer
+from .model import FusionSASegFormer
 from .utils import tensor_to_numpy_safe
 
 
@@ -28,9 +28,9 @@ def build_model(
     use_decoder_sa: bool = True,
     sa_heads: int = 4,
     sa_downsample: int = 8,
-) -> SASegFormer:
-    feature_names = list(feature_names or DEFAULT_FEATURE_NAMES)
-    return SASegFormer(
+) -> FusionSASegFormer:
+    feature_names = list(DEFAULT_FEATURE_NAMES if feature_names is None else feature_names)
+    return FusionSASegFormer(
         in_channels=3 + len(feature_names),
         num_classes=1,
         decoder_dim=decoder_dim,
