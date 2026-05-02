@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "SA-SegFormer RTS: code and data for retrogressive thaw slump segmentation"
+message: "If you use this code or dataset, please cite the associated paper."
+type: software
+license: MIT
+authors:
+  - name: "SA-SegFormer RTS contributors"
+date-released: 2026-05-02
+repository-code: "https://github.com/your-org/sa-segformer-rts"
+preferred-citation:
+  type: article
+  title: "SA-SegFormer for retrogressive thaw slump segmentation"
+  authors:
+    - name: "To be updated"
+  journal: "To be updated"
+  year: 2026

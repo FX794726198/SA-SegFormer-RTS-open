@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# macOS and external-drive sidecar files
+.DS_Store
+._*
+
+# Runtime outputs
+runs/
+results*/
+checkpoints/
+release/
+*.log
+slurm/*.out
+
+# Large local datasets are distributed separately from GitHub.
+# Keep only manifests and lightweight metadata in this repository.
+data/2023/
+data/2024/
+data/folds/
+data/raw/
+data/downloads/
+data/external/
+
+# Archives duplicated from raw working folders
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Local editor/project state
+.idea/
+.vscode/

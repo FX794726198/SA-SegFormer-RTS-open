@@ -1,0 +1,4 @@
+manifest,year,samples,regions,complete_factor_rate,optical_path_exists_rate,mask_path_exists_rate,DEM_exists_rate,EVI_exists_rate,FTI_exists_rate,LST_exists_rate,NBR_exists_rate,NDMI_exists_rate,NDVI_exists_rate,TCB_exists_rate,TCG_exists_rate,TCW_exists_rate
+data/manifests/manifest_2023_split_837_179_179.csv,2023,1195,4,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+data/manifests/manifest_2023.csv,2023,1195,4,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+data/manifests/manifest_2024.csv,2024,717,4,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

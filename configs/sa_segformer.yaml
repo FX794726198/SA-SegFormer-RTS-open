@@ -1,0 +1,17 @@
+seed: 20250917
+image_size: [256, 256]
+threshold: 0.4
+features: [DEM, EVI, FTI, LST, NBR, NDMI, NDVI, TCB, TCG, TCW]
+model:
+  backbone: mit_b0
+  decoder_dim: 256
+  use_decoder_sa: true
+  sa_heads: 4
+  sa_downsample: 8
+training:
+  epochs: 400
+  batch_size: 8
+  lr: 0.0003
+  max_lr: 0.001
+  weight_decay: 0.0001
+  pos_weight: 5.0
